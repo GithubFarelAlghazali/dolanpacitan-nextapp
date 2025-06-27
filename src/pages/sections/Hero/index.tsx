@@ -46,7 +46,7 @@ const data = [
 
 const SectionHero = () => {
      return (
-          <main className="w-screen text-center h-screen flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat text-white pt-32" style={{ background: "rgba(0,0,0,0.5)" }}>
+          <main className="w-screen text-center h-screen flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat text-white pt-32" style={{ background: "rgba(0,0,0,0.5)" }} id="home">
                <h1 className={`${titleFont.className} text-2xl md:text-[3em] font-bold `}>Jelajahi keindahan nusantara di Pacitan</h1>
                <p>Kabupaten Pacitan, Jawa Timur, Indonesia</p>
                <section className="mt-32 md:mt-18 p-5 w-full">
