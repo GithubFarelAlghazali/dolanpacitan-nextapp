@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import CardComponent from "@/pages/parts/Card";
+import CardCarousel from "@/pages/parts/Card";
 
 import { Josefin_Sans } from "next/font/google";
 
@@ -54,7 +54,7 @@ const SectionHero = () => {
                          <CarouselContent className="">
                               {data.map((item, index) => (
                                    <CarouselItem key={index} className="w-full flex justify-center items-center basis-full md:basis-1/3">
-                                        <CardComponent img={item.img} title={item.title} />
+                                        <CardCarousel img={item.img} title={item.title} />
                                    </CarouselItem>
                               ))}
                          </CarouselContent>

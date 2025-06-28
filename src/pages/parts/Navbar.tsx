@@ -13,8 +13,8 @@ const links = [
           link: "about",
      },
      {
-          name: "Tips",
-          link: "tips",
+          name: "Acara",
+          link: "event",
      },
      {
           name: "Berita",
