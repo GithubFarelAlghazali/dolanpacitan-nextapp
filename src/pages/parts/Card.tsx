@@ -9,7 +9,7 @@ const CardCarousel = (props: propsType) => {
      const { img, title } = props;
      return (
           <Card className="w-96 bg-transparent overflow-hidden flex flex-col relative p-0 md:aspect-3/2 aspect-square border-0 shadow-md">
-               <img src={`/images/${img}`} className="h-full w-auto" alt="" />
+               <img src={`/images/destinations/${img}`} className="h-full w-auto" alt="" />
                <CardContent className="absolute w-full font-semibold text-white bottom-0 bg-black/50 p-4 text-left text-xl">
                     <h4>{title}</h4>
                </CardContent>

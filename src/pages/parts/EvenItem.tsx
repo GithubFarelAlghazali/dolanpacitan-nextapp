@@ -1,16 +1,24 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Link from "next/link";
 
-const EventCard = () => {
+type propsType = {
+     title: string;
+     desc: string;
+     img: string;
+};
+
+const EventCard = (props: propsType) => {
+     const { title, desc, img } = props;
+
      return (
-          <Card className="w-96 aspect-square p-0 overflow-hidden relative">
+          <Card className="w-96 p-0 overflow-hidden relative">
                <CardContent className="p-0">
-                    <img src="/images/karang-bolong.jpg" alt="" className="w-full" />
+                    <img src={`/images/events/${img}`} alt="" className="w-full aspect-3/4" />
                </CardContent>
                <CardHeader className="pb-5">
                     <Link href="">
-                         <CardTitle className="text-xl">Festival Layangan</CardTitle>
-                         <CardDescription>22 Juli 2025 - Pantai Karang Bolong</CardDescription>
+                         <CardTitle className="text-xl">{title}</CardTitle>
+                         <CardDescription>{desc}</CardDescription>
                     </Link>
                </CardHeader>
           </Card>
