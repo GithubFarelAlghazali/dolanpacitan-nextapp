@@ -36,7 +36,7 @@ const Navbar = () => {
 
                     <div className="hidden md:flex space-x-6">
                          {links.map((link, index) => (
-                              <a href={`#${link.link}`} key={index}>
+                              <a href={`/#${link.link}`} key={index}>
                                    <span className="hover:text-violet-600 hover:bg-white p-2 rounded-md">{link.name}</span>
                               </a>
                          ))}
@@ -52,7 +52,7 @@ const Navbar = () => {
                {isOpen && (
                     <div className="md:hidden flex flex-col absolute bg-purple-950 p-3 rounded-md right-1 left-1 my-3 px-4 pb-4 space-y-2">
                          {links.map((link, index) => (
-                              <a href={`#${link.link}`} key={index}>
+                              <a href={`/#${link.link}`} key={index}>
                                    <span className="block hover:text-purple-950 hover:bg-white p-1 rounded-sm">{link.name}</span>
                               </a>
                          ))}
