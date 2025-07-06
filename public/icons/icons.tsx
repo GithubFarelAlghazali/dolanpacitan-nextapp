@@ -1,0 +1,11 @@
+type Props = {
+     className?: string;
+};
+
+export const DetailIcon = (props: Props) => {
+     return (
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3" className={`${props.className} fill-current`}>
+               <path d="m298-262-56-56 121-122H80v-80h283L242-642l56-56 218 218-218 218Zm222-18v-80h360v80H520Zm0-320v-80h360v80H520Zm120 160v-80h240v80H640Z" />
+          </svg>
+     );
+};
