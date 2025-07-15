@@ -1,6 +1,5 @@
 import { TicketIcon, LocateIcon } from "../../../public/icons/icons";
 import { GetServerSideProps } from "next";
-import Image from "next/image";
 
 type DestinationType = {
      id: string;
@@ -41,9 +40,7 @@ const DetailDestinationPage = ({ data }: DetailProps) => {
                     <main className="bg-purple-200 w-screen p-18 md:p-32 flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-8">
                          <div className="md:w-full">
                               <h1 className="font-semibold text-4xl mb-12">{data.title}</h1>
-                              <div className="relative w-full aspect-video rounded-md overflow-hidden">
-                                   <Image src={`/images/destinations/${data.img}`} alt={data.title} fill className="object-cover" priority placeholder="empty" />
-                              </div>
+                              <img src={`/images/destinations/${data.img}`} alt={data.title} className="relative w-full aspect-video rounded-md overflow-hidden" />
                          </div>
                          <article className="flex flex-col gap-3 md:w-full md:mt-20 text-sm md:text-base">
                               <h3 className="font-semibold text-2xl mb-4">Tentang {data.title}</h3>

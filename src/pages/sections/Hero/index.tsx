@@ -9,6 +9,7 @@ type DestinationType = {
 };
 
 const SectionHero = ({ data }: { data: DestinationType[] }) => {
+     console.log(data);
      return (
           <main className="w-screen text-center h-screen flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat text-white pt-32" style={{ background: "rgba(0,0,0,0.5)" }} id="home">
                <h1 className={`font-heading text-2xl md:text-[3em] font-bold `}>Jelajahi keindahan nusantara di Pacitan</h1>
@@ -27,11 +28,6 @@ const SectionHero = ({ data }: { data: DestinationType[] }) => {
                                                <CardSkeleton key={index} />
                                           </CarouselItem>
                                      ))}
-                              {data.map((item, index) => (
-                                   <CarouselItem key={index} className="w-full flex justify-center items-center basis-full md:basis-1/3">
-                                        <CardCarousel img={item.img} title={item.title} id={item.id} />
-                                   </CarouselItem>
-                              ))}
                          </CarouselContent>
                          <CarouselPrevious className="bg-transparent" />
                          <CarouselNext className="bg-transparent" />

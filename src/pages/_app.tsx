@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
      return (
           <div className="h-fit">
                <Navbar />
-               <Component {...pageProps} className="h-full" />;
+               <Component {...pageProps} className="h-full" />
                <Footer />
           </div>
      );

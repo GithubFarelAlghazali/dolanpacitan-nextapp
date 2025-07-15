@@ -22,7 +22,6 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
                notFound: true,
           };
      }
-
      return {
           props: {
                destination: data.data,
@@ -33,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
 export default function Home({ destination }: HomeProps) {
      return (
           <>
-               <div style={{ background: "url('/images/destinations/pantai-kasap.jpg')", backgroundSize: "cover", backgroundPosition: "center", backgroundRepeat: "no-repeat", backgroundAttachment: "fixed" }} className="overflow-x-hidden">
+               <div className="overflow-x-hidden bg-cover bg-center bg-no-repeat bg-fixed" style={{ backgroundImage: "url('/images/destinations/pantai-kasap.jpg')" }}>
                     <SectionHero data={destination} />
                     <SectionAbout />
                     <SectionEvent />
