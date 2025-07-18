@@ -1,55 +1,82 @@
-import { TicketIcon, LocateIcon } from "../../../public/icons/icons";
+import { TicketIcon, LocateIcon, DateIcon } from "../../../public/icons/icons";
 import { GetServerSideProps } from "next";
 
-type DestinationType = {
-     id: string;
-     title: string;
-     img: string;
-     location?: string;
-     price?: string;
-};
+// type DestinationType = {
+//      id: string;
+//      title: string;
+//      img: string;
+//      location?: string;
+//      date?: string;
+// };
 
-type DetailProps = {
-     data: DestinationType;
-};
+// type DetailProps = {
+//      data: DestinationType;
+// };
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-     const { id } = context.params!;
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//      const { id } = context.params!;
 
-     const protocol = context.req.headers.host?.startsWith("localhost") ? "http" : "https";
-     const baseUrl = `${protocol}://${context.req.headers.host}`;
+//      const protocol = context.req.headers.host?.startsWith("localhost") ? "http" : "https";
+//      const baseUrl = `${protocol}://${context.req.headers.host}`;
 
-     const res = await fetch(`${baseUrl}/api/destination/${id}`);
-     const json = await res.json();
+//      const res = await fetch(`${baseUrl}/api/event/${id}`);
+//      const json = await res.json();
 
-     if (!json.status) {
-          return { notFound: true };
-     }
+//      if (!json.status) {
+//           return { notFound: true };
+//      }
 
-     return {
-          props: {
-               data: json.data,
-          },
-     };
-};
+//      return {
+//           props: {
+//                data: json.data,
+//           },
+//      };
+// };
 
-const DetailDestinationPage = ({ data }: DetailProps) => {
+const DetailEventPage = ({ data }: DetailProps) => {
      return (
           <div className="overflow-x-hidden">
-               {data ? (
+               <main className="bg-purple-200 w-screen p-18 md:p-32 flex flex-col lg:flex-row gap-8 ">
+                    <div className="md:w-full">
+                         <h1 className="font-semibold text-4xl mb-12">Festival Rontek Pacitan</h1>
+                         <img src={`/images/events/festival-rontek.jpg`} alt="" className="relative w-full lg:w-2/3 mx-auto aspect-3/4 rounded-md overflow-hidden" />
+                    </div>
+                    <article className="flex flex-col gap-3 md:w-full md:mt-20 text-sm md:text-base">
+                         <h3 className="font-semibold text-2xl mb-4">Info acara</h3>
+                         <ul className="*:flex flex flex-col md:flex-row bg-purple-900 text-white p-5 rounded-md  gap-4 lg:gap-10  *:gap-2 *:items-start flex-wrap">
+                              <li>
+                                   <LocateIcon className="w-5 h-5 shrink-0" /> Alun-Alun Kab. Pacitan
+                              </li>
+                              <li>
+                                   <TicketIcon className="w-5 h-5 shrink-0" />
+                                   Gratis
+                              </li>
+                              <li>
+                                   <DateIcon className="w-5 h-5 shrink-0" /> 5 - 7 Juli 2025
+                              </li>
+                         </ul>
+                         <p>
+                              Pacitan juga dikenal memiliki gua-gua yang indah, diantaranya Gua Gong, Gua Tabuhan (batu dapat dipukul dan berbunyi seperti alat musik gamelan), Gua Kalak (gua pertapaan), dan Gua Luweng Jaran (diduga sebagai kompleks
+                              gua terluas di Asia Tenggara). Pacitan juga memiliki banyak pantai indah, seperti Pantai Klayar, Pantai Srau, Pantai Teleng Ria, dan Pantai Kasap. Selain itu, Pacitan juga dikenal sebagai kota kelahiran Presiden
+                              Indonesia ke-6, Susilo Bambang Yudhoyono.
+                         </p>
+                    </article>
+               </main>
+
+               {/* {data ? (
                     <main className="bg-purple-200 w-screen p-18 md:p-32 flex flex-col lg:grid grid-cols-2 grid-rows-2 gap-8">
                          <div className="md:w-full">
                               <h1 className="font-semibold text-4xl mb-12">{data.title}</h1>
-                              <img src={`/images/destinations/${data.img}`} alt={data.title} className="relative w-full aspect-video rounded-md overflow-hidden" />
+                              <img src={`/images/destinations/festival-rontek.jpg`} alt="" className="relative w-full aspect-video rounded-md overflow-hidden" />
                          </div>
                          <article className="flex flex-col gap-3 md:w-full md:mt-20 text-sm md:text-base">
                               <h3 className="font-semibold text-2xl mb-4">Tentang {data.title}</h3>
                               <ul className="*:flex flex flex-col md:flex-row bg-purple-900 text-white p-5 rounded-md  gap-4 lg:gap-10  *:gap-2 *:items-start ">
                                    <li>
-                                        <LocateIcon className="w-5 h-5 shrink-0" /> Gumuharjo, Watukarung, Kec. Pringkuku, Kabupaten Pacitan, Jawa Timur
+                                        <LocateIcon /> Gumuharjo, Watukarung, Kec. Pringkuku, Kabupaten Pacitan, Jawa Timur
                                    </li>
                                    <li>
-                                        <TicketIcon className="w-5 h-5 shrink-0" /> Rp7.000/org
+                                        <TicketIcon /> Rp7.000/org
                                    </li>
                               </ul>
                               <p>
@@ -80,9 +107,9 @@ const DetailDestinationPage = ({ data }: DetailProps) => {
                          </article>
                          <section className="col-span-2 bg-gray-100 rounded-md"></section>
                     </main>
-               )}
+               )} */}
           </div>
      );
 };
 
-export default DetailDestinationPage;
+export default DetailEventPage;
