@@ -5,6 +5,7 @@ type propsType = {
      title: string;
      desc: string;
      img: string;
+     id: string;
 };
 
 export const EventCard = (props: propsType) => {

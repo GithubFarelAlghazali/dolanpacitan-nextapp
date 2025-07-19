@@ -1,58 +1,59 @@
 import { TicketIcon, LocateIcon, DateIcon } from "../../../public/icons/icons";
 import { GetServerSideProps } from "next";
 
-// type DestinationType = {
-//      id: string;
-//      title: string;
-//      img: string;
-//      location?: string;
-//      date?: string;
-// };
+type DestinationType = {
+     id: string;
+     title: string;
+     img: string;
+     location?: string;
+     date?: string;
+};
 
-// type DetailProps = {
-//      data: DestinationType;
-// };
+type DetailProps = {
+     data: DestinationType;
+};
 
-// export const getServerSideProps: GetServerSideProps = async (context) => {
-//      const { id } = context.params!;
+export const getServerSideProps: GetServerSideProps = async (context) => {
+     const { id } = context.params!;
 
-//      const protocol = context.req.headers.host?.startsWith("localhost") ? "http" : "https";
-//      const baseUrl = `${protocol}://${context.req.headers.host}`;
+     const protocol = context.req.headers.host?.startsWith("localhost") ? "http" : "https";
+     const baseUrl = `${protocol}://${context.req.headers.host}`;
 
-//      const res = await fetch(`${baseUrl}/api/event/${id}`);
-//      const json = await res.json();
+     const res = await fetch(`${baseUrl}/api/event/${id}`);
+     const json = await res.json();
 
-//      if (!json.status) {
-//           return { notFound: true };
-//      }
+     if (!json.status) {
+          return { notFound: true };
+     }
 
-//      return {
-//           props: {
-//                data: json.data,
-//           },
-//      };
-// };
+     return {
+          props: {
+               data: json.data,
+          },
+     };
+};
 
 const DetailEventPage = ({ data }: DetailProps) => {
      return (
           <div className="overflow-x-hidden">
                <main className="bg-purple-200 w-screen p-18 md:p-32 flex flex-col lg:flex-row gap-8 ">
                     <div className="md:w-full">
-                         <h1 className="font-semibold text-4xl mb-12">Festival Rontek Pacitan</h1>
-                         <img src={`/images/events/festival-rontek.jpg`} alt="" className="relative w-full lg:w-2/3 mx-auto aspect-3/4 rounded-md overflow-hidden" />
+                         <h1 className="font-semibold text-4xl mb-12">{data.title}</h1>
+                         <img src={`/images/events/${data.img}`} alt="" className="relative w-full lg:w-2/3 mx-auto aspect-3/4 rounded-md overflow-hidden" />
                     </div>
                     <article className="flex flex-col gap-3 md:w-full md:mt-20 text-sm md:text-base">
                          <h3 className="font-semibold text-2xl mb-4">Info acara</h3>
                          <ul className="*:flex flex flex-col md:flex-row bg-purple-900 text-white p-5 rounded-md  gap-4 lg:gap-10  *:gap-2 *:items-start flex-wrap">
                               <li>
-                                   <LocateIcon className="w-5 h-5 shrink-0" /> Alun-Alun Kab. Pacitan
+                                   <LocateIcon className="w-5 h-5 shrink-0" />
+                                   {data.location}
                               </li>
                               <li>
                                    <TicketIcon className="w-5 h-5 shrink-0" />
                                    Gratis
                               </li>
                               <li>
-                                   <DateIcon className="w-5 h-5 shrink-0" /> 5 - 7 Juli 2025
+                                   <DateIcon className="w-5 h-5 shrink-0" /> {data.date}
                               </li>
                          </ul>
                          <p>
